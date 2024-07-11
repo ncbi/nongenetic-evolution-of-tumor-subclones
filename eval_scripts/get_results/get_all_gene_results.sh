@@ -9,7 +9,7 @@
 
 result_path="results/tpm/"
 
-for adpt in "har" "has" "las"; do
+for adpt in "har" "sas" "mas"; do
     echo "Adpt: ${adpt}"
     python3 eval_scripts/get_results/get_gene_results.py ${result_path}adpt_${adpt}/ a -s ${result_path}gene_lists/adpt_${adpt}/
     Rscript eval_scripts/get_results/add_stats_cols.R ${result_path}gene_lists/adpt_${adpt}/gene_info.csv

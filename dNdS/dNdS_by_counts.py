@@ -12,7 +12,7 @@ import csv
 ##########
 
 # Regime in question
-regime = "har" # either all, har, has, or las
+regime = "har" # either all, har, sas, or mas
 
 # Data paths
 base_path = "results/tpm/gene_lists/adpt_{}/".format(regime)
@@ -23,9 +23,9 @@ output_arr = []
 # Sublines in each regime
 if regime == "har":
     sublines =  ["C18", "C15", "C11", "C16"]
-elif regime == "has":
+elif regime == "sas":
     sublines = ["C1", "C4", "C22"]
-elif regime == "las":
+elif regime == "mas":
     sublines = ["C3", "C10", "C14"]
 elif regime == "all":
     sublines = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11",
