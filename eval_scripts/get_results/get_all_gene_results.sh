@@ -15,3 +15,4 @@ for adpt in "har" "sas" "mas"; do
     Rscript eval_scripts/get_results/add_stats_cols.R ${result_path}gene_lists/adpt_${adpt}/gene_info.csv
     Rscript eval_scripts/get_results/add_stats_cols.R ${result_path}gene_lists/adpt_${adpt}/all_results.csv
 done
+
