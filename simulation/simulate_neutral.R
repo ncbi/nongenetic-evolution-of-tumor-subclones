@@ -1,4 +1,4 @@
-.libPaths("~/include/R/")
+# .libPaths("~/include/R/")
 library(OUwie)
 library(phylobase)
 library(phytools)
@@ -50,7 +50,7 @@ nterm = length(tree$tip.label)
 max.age <- max(phytools::nodeHeights(tree))
 
 N = 2*nterm - 1
-regimes = read.csv("regime_files/resolved/single_resolved.csv", stringsAsFactors=FALSE)
+regimes = read.csv("regime_files/single.csv", stringsAsFactors=FALSE)
 tree$node.label = regimes$reg[(nterm+1):N]
 regimes = regimes[1:nterm,] # take only the leaves
 regimes$species = tree$tip.label
@@ -60,7 +60,8 @@ repnames = paste0('R', 1:nrep)
 dat = data.frame()
 for (i in 1:ngene) {
   t = OUwie.sim(tree, regimes, theta0 = theta_root, alpha=c(10e-10, 10e-10), sigma.sq = c(sigmasq, sigmasq), theta=c(theta_root,theta_root), root.age=max.age)
-  epsilon = matrix(rnbinom(nterm*nrep, size=r, mu=t$X), nterm, nrep) 
+  # epsilon = matrix(rnbinom(nterm*nrep, size=r, mu=t$X), nterm, nrep) 
+  epsilon = matrix(rpois(nterm*nrep, lambda=t$X), nterm, nrep)
   for (s in 1:nterm) {
     for (j in 1:nrep) {
       if (runif(1, 0, 1) < rep_drop) {
