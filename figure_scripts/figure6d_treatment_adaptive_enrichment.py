@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 
 df_save_file = "results/mouse_treatment/differential_expression/deseq2_summary.csv"
-plt_save_file = "figures/figure3d_adaptive_in_diff_eq_code_output.svg"
+plt_save_file = "figures/figure6d_adaptive_in_diff_eq_code_output.svg"
 
 # DEGs that are evaluated for adaptivity
 deg_adpt = pd.read_csv("results/mouse_treatment/differential_expression/deseq2_adpt_merge.csv")
@@ -14,7 +14,7 @@ nr = len(deg_adpt[deg_adpt["log2FoldChange"] < 0])
 
 df_data = []
 
-for regime in ["har", "has", "las"]:
+for regime in ["har", "sas", "mas"]:
     curr_deg = deg_adpt[deg_adpt["{} q-value".format(regime)] < 0.05]
     
     r_pos = len(curr_deg[(curr_deg["log2FoldChange"] > 0) & (curr_deg["{} logFC".format(regime)] > 0)])

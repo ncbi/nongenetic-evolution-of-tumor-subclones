@@ -10,7 +10,7 @@ import numpy as np
 ##########
 
 base_path = "data/simulated/neut_sim/"
-regime ="har"
+regime ="har" # har, sas, or mas
 regime_file = "regime_files/{}.csv".format(regime)
 save_path = "results/simulated/differential_expression/neut_sim/"
 

@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-save_path = "figures/treatment_data/mps_cd8.svg"
+save_path = "figures/figure6c_mps_cd8_code_output.svg"
 
 data = pd.read_csv("data/mouse_treatment/treatment_mps_cd8.csv")
 data = data.replace("Stable", "Responder") # Include stable disease in responders

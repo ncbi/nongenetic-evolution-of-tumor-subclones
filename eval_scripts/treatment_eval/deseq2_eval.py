@@ -23,7 +23,7 @@ print("Number DEGs with R < NR", len(deg[deg["log2FoldChange"] < 0]))
 print("---------")
 
 deg_adpt = deg
-for regime in ["har", "has", "las"]:
+for regime in ["har", "sas", "mas"]:
     curr_data = pd.read_csv("results/tpm/gene_lists/adpt_{}/all_results.csv".format(regime))
     # print(regime, len(curr_data[curr_data["qvalue" < 0.05]]))
 
@@ -58,7 +58,7 @@ print("Number DEGs with R > NR", len(deg_adpt[deg_adpt["log2FoldChange"] > 0]))
 print("Number DEGs with R < NR", len(deg_adpt[deg_adpt["log2FoldChange"] < 0]))
 print("---------")
 
-for regime in ["har", "has", "las"]:
+for regime in ["har", "sas", "mas"]:
     print("Regime", regime)
     curr_deg = deg_adpt[deg_adpt["{} q-value".format(regime)] < 0.05]
     print("Total DEG that are adaptive:", len(curr_deg))
