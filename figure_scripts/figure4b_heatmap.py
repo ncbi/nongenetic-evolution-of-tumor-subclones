@@ -9,8 +9,8 @@ import seaborn as sns
 ##########
 
 cluster_file = "results/tpm/kmeans_clusters.csv"
-save_file = "figures/figure1c_cluster_heatmap_code_output.svg"
-regimes = ["har", "has", "las"]
+save_file = "figures/figure4b_cluster_heatmap_code_output.svg"
+regimes = ["har", "sas", "mas"]
 
 df = pd.read_csv(cluster_file)
 df = df.set_index("gene_name", drop=True)

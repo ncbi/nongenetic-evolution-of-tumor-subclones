@@ -50,7 +50,7 @@ nterm = length(tree$tip.label)
 max.age <- max(phytools::nodeHeights(tree))
 
 N = 2*nterm - 1
-regimes = read.csv("regime_files/resolved/single_resolved.csv", stringsAsFactors=FALSE)
+regimes = read.csv("regime_files/single.csv", stringsAsFactors=FALSE)
 tree$node.label = regimes$reg[(nterm+1):N]
 regimes = regimes[1:nterm,] # take only the leaves
 regimes$species = tree$tip.label

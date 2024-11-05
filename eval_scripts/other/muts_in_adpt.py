@@ -7,9 +7,7 @@ import numpy as np
 ### (Supplement Section 3)
 ##########
 
-regime = "har"
-# regime = "has"
-# regime = "las"
+regime = "har" # har, sas, or mas
 
 base_path = "results/tpm/gene_lists/adpt_{}/".format(regime)
 adpt_path = base_path + "all_results.csv"

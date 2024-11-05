@@ -36,5 +36,5 @@ ax2.plot((-d, +d), (1 - d, 1 + d), **kwargs)  # bottom-left diagonal
 ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 
 
-plt.savefig("figures/treatment_data/growth_dynamics_code_output.svg")
+plt.savefig("figures/figure6b_growth_dynamics_code_output.svg")
 plt.show()
