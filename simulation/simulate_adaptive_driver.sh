@@ -16,18 +16,21 @@ regime_file=$2
 outpath=$3
 
 theta_root=150
-#theta_ratios=( 0 ) # constrained evolution
-theta_ratios=( 1.1 1.08 1.06 1.04 1.02 ) # adaptive evolution
+theta_ratios=( 0 ) # constrained evolution
+# theta_ratios=( 1.1 1.08 1.06 1.04 1.02 ) # adaptive evolution
 sigmasqs=( .15 1.5 15 )
-rs=( 100 150 200 )
+# rs=( 100 150 200 ) # negative binomial
+rs=( 0 ) # poisson
 alphas=( .125 1 8 )
 ngene=100
 nrep=8
 rep_drop=.1
 
 for theta_ratio in "${theta_ratios[@]}"; do
-    theta_small=$(echo "(2*$theta_root)/(1+$theta_ratio)" | bc -l)
-    theta_large=$(echo "(2*$theta_root*$theta_ratio) / (1+$theta_ratio)" | bc -l)
+#     theta_small=$(echo "(2*$theta_root)/(1+$theta_ratio)" | bc -l) # adaptive 
+#     theta_large=$(echo "(2*$theta_root*$theta_ratio) / (1+$theta_ratio)" | bc -l) # adaptive
+    theta_small=$theta_root # constrained
+    theta_large=$theta_root # constrained
     for sigmasq in "${sigmasqs[@]}"; do
         for r  in "${rs[@]}"; do
             for alpha in "${alphas[@]}"; do
@@ -46,8 +49,8 @@ for theta_ratio in "${theta_ratios[@]}"; do
                     $ngene \
                     $nrep \
                     $rep_drop \
-                    "background" \
-                    "selected"
+                    "2_background" \
+                    "1_chosen"
             done
         done
     done
